@@ -1,0 +1,144 @@
+{
+  "reasoning_cap_10pct": {
+    "groups": {
+      "reasoning": {
+        "requests": 201,
+        "tokens": 1241156,
+        "cost_usd": 1.3964642500000009,
+        "energy_wh": 29787.744000000002
+      },
+      "ordinary": {
+        "requests": 2199,
+        "tokens": 6291871,
+        "cost_usd": 7.08815872,
+        "energy_wh": 1887.5613000000005
+      }
+    },
+    "cap_fraction": 0.1,
+    "downgraded_requests": 0,
+    "reasoning_after": 201,
+    "cost_before_usd": 8.48462297,
+    "cost_after_usd": 8.484622969999995,
+    "energy_before_wh": 31675.305300000004,
+    "energy_after_wh": 31675.305300000065,
+    "savings_usd": 0.0,
+    "savings_wh": 0.0
+  },
+  "reasoning_cap_5pct": {
+    "groups": {
+      "reasoning": {
+        "requests": 201,
+        "tokens": 1241156,
+        "cost_usd": 1.3964642500000009,
+        "energy_wh": 29787.744000000002
+      },
+      "ordinary": {
+        "requests": 2199,
+        "tokens": 6291871,
+        "cost_usd": 7.08815872,
+        "energy_wh": 1887.5613000000005
+      }
+    },
+    "cap_fraction": 0.05,
+    "downgraded_requests": 81,
+    "reasoning_after": 120,
+    "cost_before_usd": 8.48462297,
+    "cost_after_usd": 8.258481969999991,
+    "energy_before_wh": 31675.305300000004,
+    "energy_after_wh": 23795.672400000043,
+    "savings_usd": 0.226141,
+    "savings_wh": 7879.6329
+  },
+  "carbon_scheduling": {
+    "jobs": [
+      {
+        "job_id": "job-train-llm",
+        "gpu_hours": 2240.0,
+        "energy_wh": 1568000.0,
+        "carbon_before_g": 595840.0,
+        "carbon_after_g": 47040.0,
+        "carbon_saved_g": 548800.0
+      },
+      {
+        "job_id": "job-train-embed",
+        "gpu_hours": 200.0,
+        "energy_wh": 80000.0,
+        "carbon_before_g": 30400.0,
+        "carbon_after_g": 2400.0,
+        "carbon_saved_g": 28000.0
+      },
+      {
+        "job_id": "job-finetune",
+        "gpu_hours": 36.0,
+        "energy_wh": 25200.0,
+        "carbon_before_g": 9576.0,
+        "carbon_after_g": 756.0,
+        "carbon_saved_g": 8820.0
+      },
+      {
+        "job_id": "job-dev-sandbox",
+        "gpu_hours": 352.0,
+        "energy_wh": 52800.0,
+        "carbon_before_g": 20064.0,
+        "carbon_after_g": 1584.0,
+        "carbon_saved_g": 18480.0
+      },
+      {
+        "job_id": "job-batch-eval",
+        "gpu_hours": 90.0,
+        "energy_wh": 63000.0,
+        "carbon_before_g": 23940.0,
+        "carbon_after_g": 1890.0,
+        "carbon_saved_g": 22050.0
+      }
+    ],
+    "regions": [
+      {
+        "region": "us-east-1",
+        "usd_kwh": 0.12,
+        "g_kwh": 380,
+        "electricity_usd": 214.67999999999998,
+        "carbon_g": 679820.0,
+        "balanced_score": 1.0
+      },
+      {
+        "region": "us-west-2",
+        "usd_kwh": 0.07,
+        "g_kwh": 120,
+        "electricity_usd": 125.23000000000002,
+        "carbon_g": 214680.0,
+        "balanced_score": 0.44956140350877194
+      },
+      {
+        "region": "europe-north1",
+        "usd_kwh": 0.09,
+        "g_kwh": 30,
+        "electricity_usd": 161.01,
+        "carbon_g": 53670.0,
+        "balanced_score": 0.4144736842105263
+      },
+      {
+        "region": "europe-central2",
+        "usd_kwh": 0.18,
+        "g_kwh": 660,
+        "electricity_usd": 322.02,
+        "carbon_g": 1180740.0,
+        "balanced_score": 1.618421052631579
+      },
+      {
+        "region": "us-east-wa",
+        "usd_kwh": 0.055,
+        "g_kwh": 90,
+        "electricity_usd": 98.395,
+        "carbon_g": 161010.0,
+        "balanced_score": 0.3475877192982456
+      }
+    ],
+    "energy_wh": 1789000.0,
+    "baseline_region": "us-east-1",
+    "cheapest": "us-east-wa",
+    "cleanest": "europe-north1",
+    "balanced": "us-east-wa",
+    "carbon_saved_g": 626150.0
+  }
+}

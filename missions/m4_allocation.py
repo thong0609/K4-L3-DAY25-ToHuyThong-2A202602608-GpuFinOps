@@ -32,12 +32,12 @@ def run(verbose: bool = True) -> dict:
     coverage = allocation.tag_coverage(priced, TAGS)
     ready = allocation.chargeback_ready(coverage)
 
-    # write a FOCUS-style export (first 50 rows as a sample)
-    focus = allocation.to_focus_rows(priced[:50])
+    # Export all requests so allocation can be reconciled with M2.
+    focus = allocation.to_focus_rows(priced, period_start="2026-06-15")
     out_path = os.path.join(ROOT, "outputs", "focus_export.csv")
     os.makedirs(os.path.dirname(out_path), exist_ok=True)
-    with open(out_path, "w", newline="") as f:
-        w = csv.writer(f)
+    with open(out_path, "w", newline="", encoding="utf-8") as f:
+        w = csv.writer(f, lineterminator="\n")
         w.writerow(["BillingAccountId", "ChargePeriodStart", "ServiceCategory",
                     "ServiceName", "ResourceId", "BilledCost", "BillingCurrency", "team", "project"])
         for fr in focus:
@@ -54,6 +54,7 @@ def run(verbose: bool = True) -> dict:
         print(f"FOCUS export -> outputs/focus_export.csv ({len(focus)} rows)")
 
     return {"by_team": {k: round(v, 2) for k, v in by_team.items()},
+            "by_team_exact": by_team,
             "by_project": {k: round(v, 2) for k, v in by_project.items()},
             "tag_coverage": round(coverage, 3), "chargeback_ready": ready}
 
